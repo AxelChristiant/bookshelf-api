@@ -39,7 +39,7 @@ export const getAllBooks = (request, h) => {
     return response.success(h, 200, "", data);
   }
 
-  if (finished !== undefined) {
+  if (finished) {
     const finishedBook = books.filter((book) => book.finished === Boolean(parseInt(finished)));
     const data = getBookData(finishedBook);
     return response.success(h, 200, "", data);
