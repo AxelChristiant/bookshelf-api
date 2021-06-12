@@ -32,19 +32,19 @@ class Book {
   updateValue(request) {
     this.name = request.payload.name;
 
-    if (!request.payload.year) this.year = request.payload.year;
+    if (request.payload.year) this.year = request.payload.year;
 
-    if (!request.payload.author) this.author = request.payload.author;
+    if (request.payload.author) this.author = request.payload.author;
 
-    if (!request.payload.summary) this.summary = request.payload.summary;
+    if (request.payload.summary) this.summary = request.payload.summary;
 
-    if (!request.payload.publisher) this.publisher = request.payload.publisher;
+    if (request.payload.publisher) this.publisher = request.payload.publisher;
 
-    if (!request.payload.pageCount) this.pageCount = request.payload.pageCount;
+    if (request.payload.pageCount) this.pageCount = request.payload.pageCount;
 
-    if (!request.payload.readPage) this.readPage = request.payload.readPage;
+    if (request.payload.readPage) this.readPage = request.payload.readPage;
 
-    if (!request.payload.reading) this.reading = request.payload.reading;
+    if (request.payload.reading) this.reading = request.payload.reading;
 
     this.updatedAt = new Date().toISOString();
   }

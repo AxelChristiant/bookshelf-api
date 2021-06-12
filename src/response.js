@@ -1,18 +1,18 @@
-const responseSuccess = (h, statusCode, messageBody, dataBody) => {
-  if (!messageBody) {
+export const success = (h, statusCode, message, data) => {
+  if (!message) {
     const response = h.response({
       status: "success",
-      data: dataBody,
+      data: data,
     });
 
     response.code(statusCode);
     return response;
   }
 
-  if (!dataBody) {
+  if (!data) {
     const response = h.response({
       status: "success",
-      message: messageBody,
+      message: message,
     });
 
     response.code(statusCode);
@@ -21,32 +21,30 @@ const responseSuccess = (h, statusCode, messageBody, dataBody) => {
 
   const response = h.response({
     status: "success",
-    message: messageBody,
-    data: dataBody,
+    message: message,
+    data: data,
   });
 
   response.code(statusCode);
   return response;
 };
 
-const responseFail = (h, statusCode, messageBody) => {
+export const fail = (h, statusCode, message) => {
   const response = h.response({
     status: "fail",
-    message: messageBody,
+    message: message,
   });
 
   response.code(statusCode);
   return response;
 };
 
-const responseError = (h, statusCode, messageBody) => {
+export const error = (h, statusCode, message) => {
   const response = h.response({
     status: "error",
-    message: messageBody,
+    message: message,
   });
 
   response.code(statusCode);
   return response;
 };
-
-export {responseSuccess, responseFail, responseError};
